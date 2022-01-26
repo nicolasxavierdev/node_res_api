@@ -7,10 +7,6 @@ app.listen(port, () => {
   console.log(`Aplicação rodando na porta ${port}`);
 });
 
-app.get('/games', (req, res) => {
-  res.send(games);
-});
-
 //Lista de ususarios.
 const users = [
   {
@@ -82,6 +78,10 @@ app.get('/users/:email', (req, res) => {
 });
 
 //Endpoint de games.
+app.get('/games', (req, res) => {
+  res.send(games);
+});
+
 app.get('/games/:id', (req, res) => {
   const idGame = req.params.id;
 
