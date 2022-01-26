@@ -3,46 +3,15 @@ const app = express();
 
 const port = 4000;
 
-const games = [
-  {
-    id: 1,
-    name: "Apex Legends",
-    year: 2019,
-    gender: "battle royale"
-  },
-  {
-    id: 2,
-    name: "Fortnite",
-    year: 2017,
-    gender: "battle royale"
-  },
-  {
-    id: 3,
-    name: "Crash Bandicoot",
-    year: 1996,
-    gender: "aventura"
-  },
-  {
-    id: 4,
-    name: "Donkey Kong Country",
-    year: 1994,
-    gender: "aventura"
-  }
-];
+app.listen(port, () => {
+  console.log(`Aplicação rodando na porta ${port}`);
+});
 
 app.get('/games', (req, res) => {
   res.send(games);
 });
 
-app.get('/games/:id', (req, res) => {
-  const idGame = req.params.id;
-
-  const game = games.filter((item) => {
-    return item.id == idGame
-  });
-  res.send(game);
-});
-
+//Lista de ususarios.
 const users = [
   {
     id: 1,
@@ -70,6 +39,35 @@ const users = [
   }
 ];
 
+//Lista de games.
+const games = [
+  {
+    id: 1,
+    name: "Apex Legends",
+    year: 2019,
+    gender: "battle royale"
+  },
+  {
+    id: 2,
+    name: "Fortnite",
+    year: 2017,
+    gender: "battle royale"
+  },
+  {
+    id: 3,
+    name: "Crash Bandicoot",
+    year: 1996,
+    gender: "aventura"
+  },
+  {
+    id: 4,
+    name: "Donkey Kong Country",
+    year: 1994,
+    gender: "aventura"
+  }
+];
+
+//Endpoint de usuarios.
 app.get('/users', (req, res) => {
   res.send(users);
 });
@@ -83,6 +81,12 @@ app.get('/users/:email', (req, res) => {
   res.send(user);
 });
 
-app.listen(port, () => {
-  console.log(`Aplicação rodando na porta ${port}`);
+//Endpoint de games.
+app.get('/games/:id', (req, res) => {
+  const idGame = req.params.id;
+
+  const game = games.filter((item) => {
+    return item.id == idGame
+  });
+  res.send(game);
 });
