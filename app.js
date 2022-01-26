@@ -35,10 +35,10 @@ app.get('/users', (req, res) => {
 });
 
 app.get('/users/:email', (req, res) => {
-  const e = req.params.email;
+  const userEmail = req.params.email;
 
   const user = users.filter((item) => {
-    return item.email == e
+    return item.email == userEmail
   });
   res.send(user);
 });
